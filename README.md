@@ -48,17 +48,6 @@ Configuración **solo de demostración local**:
 | Puerto Windows | `5433` |
 | Puerto interno Docker | `5432` |
 
-Se usa **5433** en Windows para no interferir con el contenedor anterior que usaba 5432. No necesitas crear las tablas manualmente: Spring Boot ejecuta `schema.sql` y carga datos del caso al iniciar por primera vez.
-
-Para comprobar que PostgreSQL acepta el usuario/contraseña, ejecuta:
-
-```powershell
-docker exec -e PGPASSWORD=HorizonteDemo2026 horizonte-integrador-db psql -h 127.0.0.1 -U horizonte_app -d horizonte_integrador -c "SELECT current_user;"
-```
-
-El resultado esperado contiene `horizonte_app`.
-
-**Importante:** `docker compose down` detiene y elimina contenedor/red pero conserva los datos. **NO ejecutes `docker compose down -v`** salvo que quieras borrar deliberadamente toda la información de la base de datos de este proyecto.
 
 ## PASO 3 — Backend Spring Boot
 
@@ -70,10 +59,6 @@ cd backend
 ```
 
 Deja abierta la terminal. El primer inicio descargará Maven y las dependencias Java. La API escucha en `http://localhost:8080`. Verás algo similar a `Tomcat started on port 8080` y `Started ProyectoIntegradorApplication` si arrancó correctamente.
-
-Alternativa: doble clic en `iniciar_backend_windows.bat` desde la carpeta raíz.
-
-Si aparece error de conexión, comprueba Docker y el puerto 5433 antes de borrar volúmenes. Si hay un servicio anterior ocupando 5433, puedes cambiar **ambos lados**: `docker-compose.yml` (puerto del host) y `backend/src/main/resources/application.properties` (JDBC URL). No cambies solo uno.
 
 ## PASO 4 — Frontend Angular
 
