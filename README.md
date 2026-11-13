@@ -58,8 +58,7 @@ cd backend
 .\mvnw.cmd spring-boot:run
 ```
 
-Deja abierta la terminal. El primer inicio descargará Maven y las dependencias Java. La API escucha en `http://localhost:8080`. Verás algo similar a `Tomcat started on port 8080` y `Started ProyectoIntegradorApplication` si arrancó correctamente.
-
+Deja abierta la terminal. El primer inicio descargará Maven y las dependencias Java. La API escucha en `http://localhost:8080`. 
 ## PASO 4 — Frontend Angular
 
 En **una tercera terminal**, desde la raíz:
@@ -82,7 +81,4 @@ Alternativa: `iniciar_frontend_windows.bat`.
 | Usuario de proyecto | `usuario@horizonte.cl` | `Usuario2026!` |
 
 
-docker exec horizonte-integrador-db pg_dump -U horizonte_app -d horizonte_integrador > respaldo_horizonte.sql
-```
 
-No incluyas `node_modules`, `backend/target` ni contraseñas reales en GitHub.
