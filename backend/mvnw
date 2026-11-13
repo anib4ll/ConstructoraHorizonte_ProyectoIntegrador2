@@ -1,0 +1,29 @@
+#!/bin/sh
+set -e
+
+MAVEN_VERSION="3.9.9"
+MAVEN_HOME_LOCAL="$HOME/.m2/wrapper/dists/apache-maven-$MAVEN_VERSION"
+MAVEN_CMD="$MAVEN_HOME_LOCAL/bin/mvn"
+MAVEN_URL="https://repo.maven.apache.org/maven2/org/apache/maven/apache-maven/$MAVEN_VERSION/apache-maven-$MAVEN_VERSION-bin.zip"
+
+if [ ! -x "$MAVEN_CMD" ]; then
+  echo "Maven $MAVEN_VERSION no esta instalado para este proyecto."
+  echo "Se descargara automaticamente una sola vez..."
+  TMP_DIR="$(mktemp -d)"
+  ZIP_FILE="$TMP_DIR/maven.zip"
+  if command -v curl >/dev/null 2>&1; then
+    curl -fsSL "$MAVEN_URL" -o "$ZIP_FILE"
+  elif command -v wget >/dev/null 2>&1; then
+    wget -q "$MAVEN_URL" -O "$ZIP_FILE"
+  else
+    echo "ERROR: se necesita curl o wget para descargar Maven."
+    exit 1
+  fi
+  unzip -q "$ZIP_FILE" -d "$TMP_DIR"
+  mkdir -p "$(dirname "$MAVEN_HOME_LOCAL")"
+  rm -rf "$MAVEN_HOME_LOCAL"
+  mv "$TMP_DIR/apache-maven-$MAVEN_VERSION" "$MAVEN_HOME_LOCAL"
+  rm -rf "$TMP_DIR"
+fi
+
+exec "$MAVEN_CMD" "$@"

@@ -1,0 +1,20 @@
+services:
+  postgres:
+    image: postgres:16-alpine
+    container_name: horizonte-integrador-db
+    restart: unless-stopped
+    environment:
+      POSTGRES_DB: horizonte_integrador
+      POSTGRES_USER: horizonte_app
+      POSTGRES_PASSWORD: HorizonteDemo2026
+    ports:
+      - '5433:5432'
+    volumes:
+      - horizonte_integrador_data:/var/lib/postgresql/data
+    healthcheck:
+      test: ['CMD-SHELL', 'pg_isready -U horizonte_app -d horizonte_integrador']
+      interval: 5s
+      timeout: 5s
+      retries: 15
+volumes:
+  horizonte_integrador_data:

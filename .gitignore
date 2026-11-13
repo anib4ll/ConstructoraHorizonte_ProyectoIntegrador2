@@ -1,0 +1,13 @@
+﻿node_modules/
+dist/
+.angular/
+target/
+.env
+.env.*
+!.env.example
+application-local.properties
+application-local.yml
+*.log
+.idea/
+.vscode/
+.DS_Store
