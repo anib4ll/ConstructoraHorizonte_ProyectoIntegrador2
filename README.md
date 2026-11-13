@@ -23,17 +23,9 @@ ConstructoraHorizonte_ProyectoIntegrador2_FINAL/
   README.md
 ```
 
-## Requisitos de tu PC
-
-1. **Java 21** (`java -version`).
-2. **Node.js LTS** y npm (`node -v`, `npm -v`).
-3. **Docker Desktop** abierto y con motor Linux funcionando (`docker ps`).
-4. **VS Code** con extensiones recomendadas: Extension Pack for Java, Spring Boot Extension Pack y Angular Language Service.
-5. Internet la primera vez para descargar Maven y paquetes npm.
-
 ## PASO 1 — Abrir la carpeta correcta
 
-Extrae el ZIP y abre en VS Code la carpeta que contiene `docker-compose.yml`, `backend` y `frontend`. Los comandos siguientes se ejecutan desde **esa carpeta raíz**, no desde `backend`.
+Extrae el ZIP y abre en VS Code la carpeta que contiene `docker-compose.yml`, `backend` y `frontend`.
 
 ## PASO 2 — PostgreSQL en Docker
 
