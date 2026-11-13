@@ -70,7 +70,7 @@ npm install
 npm start
 ```
 
-Espera a que Angular indique que está listo y abre **http://localhost:4200**. No hace falta instalar Angular CLI globalmente.
+Espera a que Angular indique que está listo y abre **http://localhost:4200**. 
 
 Alternativa: `iniciar_frontend_windows.bat`.
 
