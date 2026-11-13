@@ -1,6 +1,6 @@
 # Proyecto Integrador 2 — Constructora Horizonte
 
-Aplicación académica de gestión de proyectos desarrollada con **Angular 18**, **Spring Boot 3.4.5 (Java 21)** y **PostgreSQL 16**, utilizando API REST y JDBC.
+Aplicación de gestión de proyectos desarrollada con **Angular 18**, **Spring Boot 3.4.5 (Java 21)** y **PostgreSQL 16**, utilizando API REST y JDBC.
 
 > **Aviso de pruebas:** Código fuente de integración preparado con pruebas unitarias de calendario y fórmulas. Esta distribución no ha podido compilarse ni probarse de extremo a extremo en este entorno, porque las dependencias de Angular y Maven no estaban disponibles para descarga. Antes de una entrega académica, ejecutar `mvnw.cmd test`, `npm run build` y las verificaciones funcionales descritas abajo en Windows. No presentar como validado lo que aún no se ha comprobado localmente.
 
