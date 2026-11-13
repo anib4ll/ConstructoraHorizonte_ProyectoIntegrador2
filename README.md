@@ -81,53 +81,7 @@ Alternativa: `iniciar_frontend_windows.bat`.
 | Administrador | `admin@horizonte.cl` | `Admin2026!` |
 | Usuario de proyecto | `usuario@horizonte.cl` | `Usuario2026!` |
 
-La autenticación usa HTTP Basic para **uso local educativo**. No está endurecida para producción ni se recomienda publicarla en internet. Admin puede editar/autorizar; usuario puede consultar y registrar avances/evidencia.
 
-## Datos precargados
-
-Se carga el caso Constructora Horizonte **solo si la tabla de proyectos está vacía**: 4 etapas, 12 actividades, 20 subactividades, 4 precedencias FS/SS/FF/SF, 5 profesionales y otros recursos, 6 hitos, 8 KPI del proyecto, 12 KPI del cambio y 5 solicitudes.
-
-Las tarifas, porcentajes, fechas internas y responsables de ejemplo son **datos académicos ficticios**, no cifras oficiales suministradas por la empresa. El presupuesto máximo del caso es $260.000.000 CLP y el piloto se plantea para tres obras. La plataforma no reemplaza el ERP corporativo.
-
-## Módulos
-
-- Proyectos / EDT (crear, editar, ver; borrar componentes EDT sin hijos ni referencias).
-- Planificación: duraciones, dependencias FS/SS/FF/SF, desfases positivos/negativos, feriados, detección de ciclos y Carta Gantt.
-- Recursos: profesionales, tipos, materiales, equipamiento, licencias; asignación y costos plan/real; alertas por sobrecarga semanal.
-- Hitos: fecha comprometida/real, aceptación y evidencia.
-- KPI: fórmulas configurables, metas, semáforos, historial; 8 + 12 precargados.
-- Solicitudes de cambio: creación, evaluación, aprobación/rechazo, diez etapas, cierre, adopción/efectividad y línea base antes/después.
-- Dos dashboards con filtros y módulo de demostración integrada.
-
-## Verificación sugerida antes de entregar
-
-Desde la raíz, con Docker ejecutándose y sin cerrar el backend:
-
-```powershell
-cd backend
-.\mvnw.cmd test
-```
-
-En otra terminal:
-
-```powershell
-cd frontend
-npm run build
-```
-
-Luego realiza los tres escenarios de `docs/GUIA_DEMOSTRACION.md`. También puedes consultar los datos de la API desde el navegador en `http://localhost:8080/api/proyectos`, ingresando las credenciales de demostración cuando lo pida el navegador.
-
-## Reiniciar, cerrar y respaldar
-
-Para detener Angular y Spring Boot usa `Ctrl+C` en sus terminales. Para detener PostgreSQL conservando los datos:
-
-```powershell
-docker compose down
-```
-
-Para respaldo (mientras esté funcionando PostgreSQL):
-
-```powershell
 docker exec horizonte-integrador-db pg_dump -U horizonte_app -d horizonte_integrador > respaldo_horizonte.sql
 ```
 
